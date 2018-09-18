@@ -9,26 +9,48 @@ player_y_pos = 1
 
 while player_x_pos != 3 or player_y_pos != 1:
     player_pos_str = str(player_x_pos) + " " + str(player_y_pos)
+    north_bool = False
+    east_bool = False
+    south_bool = False
+    west_bool = False
 
-    print("You can travel:", end = " ")
+    print("You can travel:", end = "")
     if player_y_pos != 3 and player_pos_str != "2 2":
-        print("(N)orth", end = " ")
-    if player_x_pos != 3 and (player_pos_str != "1 1" or player_pos_str != "2 2" or player_pos_str != "2 1"):
-        print("(E)ast", end = " ")
+        print(" (N)orth", end = "")
+        north_bool = True
+    if player_x_pos != 3 and (player_pos_str != "1 1" and player_pos_str != "2 2" and player_pos_str != "2 1"):
+        print(" (E)ast", end = "")
+        east_bool = True
     if player_y_pos != 1 and player_pos_str != "2 3":
-        print("(S)outh", end = " ")
-    if player_x_pos != 1 and (player_pos_str != "2 1" or player_pos_str != "3 2" or player_pos_str != "3 1"):
-        print("(W)est", end = " ")
+        print(" (S)outh", end = "")
+        south_bool = True
+    if player_x_pos != 1 and (player_pos_str != "2 1" and player_pos_str != "3 2" and player_pos_str != "3 1"):
+        print(" (W)est", end = "")
+        west_bool = True
+    print(".")
 
-    player_direction_str = input("Where you wanna go? ")
+    
+    player_direction_str = input("Direction: ")
+    player_direction_str = player_direction_str.lower()
     if player_direction_str == "n":
-        player_y_pos += 1
+        if north_bool == True:
+            player_y_pos += 1
+        else:
+            print("Not a valid direction!")
     elif player_direction_str == "e":
-        player_x_pos += 1
+        if east_bool == True:
+            player_x_pos += 1
+        else:
+            print("Not a valid direction!")
     elif player_direction_str == "s":
-        player_y_pos -= 1
+        if south_bool == True:
+            player_y_pos -= 1
+        else:
+            print("Not a valid direction!")
     elif player_direction_str == "w":
-        player_x_pos -= 1
+        if west_bool == True:
+            player_x_pos -= 1
+        else:
+            print("Not a valid direction!")
     else:
-        print("Invalid input")
-    print(player_x_pos, player_y_pos)
+        print("Not a valid direction!")
