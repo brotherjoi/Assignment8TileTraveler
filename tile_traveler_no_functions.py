@@ -15,19 +15,32 @@ while player_x_pos != 3 or player_y_pos != 1:
     east_bool = False
     south_bool = False
     west_bool = False
+    direction_count = 0
 
     print("You can travel:", end = "")
     if player_y_pos != 3 and player_pos_str != "2 2":
         print(" (N)orth", end = "")
         north_bool = True
+        direction_count += 1
     if player_x_pos != 3 and (player_pos_str != "1 1" and player_pos_str != "2 2" and player_pos_str != "2 1"):
-        print(" (E)ast", end = "")
+        if direction_count > 0:
+            print(" or (E)ast", end = "")
+        else:
+            print(" (E)ast", end = "")
         east_bool = True
+        direction_count += 1
     if player_y_pos != 1 and player_pos_str != "2 3":
-        print(" (S)outh", end = "")
+        if direction_count > 0:
+            print(" or (S)outh", end = "")
+        else:
+            print(" (S)outh", end = "")
         south_bool = True
+        direction_count += 1
     if player_x_pos != 1 and (player_pos_str != "2 1" and player_pos_str != "3 2" and player_pos_str != "3 1"):
-        print(" (W)est", end = "")
+        if direction_count > 0:
+            print(" or (W)est", end = "")
+        else:
+            print(" (W)est", end = "")
         west_bool = True
     print(".")
 
