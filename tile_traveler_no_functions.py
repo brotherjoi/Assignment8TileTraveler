@@ -8,6 +8,18 @@ player_x_pos = 1
 player_y_pos = 1
 
 while player_x_pos != 3 or player_y_pos != 1:
+    player_pos_str = str(player_x_pos) + " " + str(player_y_pos)
+
+    print("You can travel:", end = " ")
+    if player_y_pos != 3 and player_pos_str != "2 2":
+        print("(N)orth", end = " ")
+    if player_x_pos != 3 and (player_pos_str != "1 1" or player_pos_str != "2 2" or player_pos_str != "2 1"):
+        print("(E)ast", end = " ")
+    if player_y_pos != 1 and player_pos_str != "2 3":
+        print("(S)outh", end = " ")
+    if player_x_pos != 1 and (player_pos_str != "2 1" or player_pos_str != "3 2" or player_pos_str != "3 1"):
+        print("(W)est", end = " ")
+
     player_direction_str = input("Where you wanna go? ")
     if player_direction_str == "n":
         player_y_pos += 1
