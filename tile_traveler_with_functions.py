@@ -71,6 +71,7 @@ def player_move(player_x_pos, player_y_pos, north_bool, east_bool, south_bool, w
                     print("Not a valid direction!")
             else:
                 print("Not a valid direction!")
+    return player_x_pos, player_y_pos
     
 
 player_x_pos = 1
@@ -80,7 +81,7 @@ player_y_pos = 1
 while player_x_pos != 3 or player_y_pos != 1:
     north_bool, east_bool, south_bool, west_bool = possible_movements(player_x_pos, player_y_pos)
 
-    player_move(player_x_pos, player_y_pos, north_bool, east_bool, south_bool, west_bool)
+    player_x_pos, player_y_pos = player_move(player_x_pos, player_y_pos, north_bool, east_bool, south_bool, west_bool)
     
 
     
